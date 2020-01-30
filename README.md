@@ -2,9 +2,9 @@
 GUID generation problem
 
 # implementation
-The solution consists of a C++ class which acts as a "node" from the problem
-  properties: unsigned long long nodeId
-  methods: getNodeId(), getTimestamp(), getId() 
+- The solution consists of a C++ class which acts as a "node" from the problem
+- properties: unsigned long long nodeId
+- methods: getNodeId(), getTimestamp(), getId() 
   
 The getId() method returns a 64 bit unsigned integer
  - first 10 bits consist of the nodeId (1024 nodes -> 2^10 -> 10 bites; in this way, different nodes can generate IDs at the same time)
