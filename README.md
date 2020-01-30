@@ -15,7 +15,7 @@ The getId() method returns a 64 bit unsigned integer
     - ‭01 0110 1111 1111 0111 0101 0100 0011 1000 1110 1000‬
     - ‭16F F754 38E8‬ -> 42 bits
     
-I had another solution with 10 bits nodeId + 54 bits timestamp in microseconds(). However, even though this way there were fewer operations to do (no more increment + check if 4095 internal counter), the actual performance over 1 million generations wasn't different.
+I had another solution with 10 bits nodeId + 54 bits timestamp in microseconds(). However, even though this way there were fewer operations to do (no more increment + check if internal counter=4095), the actual performance over 1 million generations wasn't different.
 Because the solution presented first was more reliable (guaranteed different consecutive GUIDs) and it generated 1 million GUIDs in [0.33; 0.37]s it was kept.
 
 # tests
