@@ -30,3 +30,20 @@ Because the solution presented first was more reliable (guaranteed different con
 
 - Sent 100k "getID" requests from client -> [4.20; 4.42] seconds
 - The goal is not met, but this may be because my laptop isn't a high-end one and because the solution is single-threaded
+
+# asked questions
+## Please describe your solution to get_id and why it is correct i.e. guaranteed globally unique
+- because in the GUID construction i take into account the nodeID, so even if all nodes generate an id at the exact same time it will be different 
+- because i use the timestamp, which makes an GUID composition unique on the first 42 least significant bites (every millisecond)
+- because i take that a step further with 12 bits (4096) unique possible GUIDs in a millisecond
+- to statisfy the 100k generations per second requirement i need 1000 unique GUIDs per millisecond, I can have up to 4096
+
+## Please explain how your solution achieves the desired performance i.e. 100,000 or more requests per second per node.  How did you verify this?
+- the generate GUIDs test program manages to generate ~3-4 million GUIDs per second
+- the client-server test does not meet this requirement (~20-25k), however, i only tested in a single threaded environment
+
+## How do you manage uniqueness after a node crashes and restarts?  
+- assuming the node will retain it's unique id (or be provided an unused id) I think it's impossible for a system to recover from a crash in under a millisecond, thus the nodes which will be generated next will be unique because of the timestamp
+
+## How do you manage uniqueness after the entire system fails and restarts?
+- as stated above, because a system will take more than one millisecond to restart, the GUIDs will be unique because of the timestamp
