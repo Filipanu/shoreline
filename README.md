@@ -7,7 +7,7 @@ GUID generation problem
 - methods: getNodeId(), getTimestamp(), getId() 
   
 The getId() method returns a 64 bit unsigned integer
- - first 10 bits consist of the nodeId (1024 nodes -> 2^10 -> 10 bites; in this way, different nodes can generate IDs at the same time)
+ - first 10 bits consist of the nodeId (1024 nodes -> 2^10 -> 10 bits; in this way, different nodes can generate IDs at the same time)
  - next 12 bits are from an internal counter (resets to 0 when 4095 is reached)
  - 42 bits timestamp in milliseconds
     - the time in milliseconds returned by the chrono lib in c++ returns a number with 41'st of the least significant bit occupied (take this to 42 to keep more dates in the future)
