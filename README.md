@@ -12,7 +12,7 @@ The getId() method returns a 64 bit unsigned integer
  - 42 bits timestamp in milliseconds
     - the time in milliseconds returned by the chrono lib in c++ returns a number with the 41'st least significant bit occupied (take this to 42 to keep more dates in the future)
     - current time since epoch is 1,580,402,489,576 in milliseconds
-    - ‭0001 0110 1111 1111 0111 0101 0100 0011 1000 1110 1000‬
+    - ‭01 0110 1111 1111 0111 0101 0100 0011 1000 1110 1000‬
     - ‭16F F754 38E8‬ -> 42 bits
     
 I had another solution with 10 bits nodeId + 54 bits timestamp in microseconds(). However, even though this way there were fewer operations to do (no more increment + check if 4095 internal counter), the actual performance over 1 million generations wasn't different.
