@@ -21,12 +21,12 @@ Because the solution presented first was more reliable (guaranteed different con
 # tests
 ## Generate GUIDs test
 
-Generates 100k GUIDs in [0.028; 0.030] seconds (array allocated on stack)
-Generates 1m GUIDs in [0.33; 0.37] seconds (array was allocated on the heap, takes a little longer to access)
+- Generates 100k GUIDs in [0.028; 0.030] seconds (array allocated on stack)
+- Generates 1m GUIDs in [0.33; 0.37] seconds (array was allocated on the heap, takes a little longer to access)
 
 ## Client-Server test
 
-Servers waits for messages. If he receives a "getID" it generated a GUID and sends it back. If he receives "STOP" he closes connection and stops.
+- Servers waits for messages. If he receives a "getID" it generated a GUID and sends it back. If he receives "STOP" he closes connection and stops.
 
-Sent 100k "getID" requests from client -> [4.20; 4.42] seconds
-The goal is not met, but this may be because my laptop isn't a high-end one and because the solution is single-threaded
+- Sent 100k "getID" requests from client -> [4.20; 4.42] seconds
+- The goal is not met, but this may be because my laptop isn't a high-end one and because the solution is single-threaded
