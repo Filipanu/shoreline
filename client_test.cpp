@@ -1,5 +1,7 @@
-// client_test.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Windows SDK needs to be downloaded
+// I did this in Visual Studio 2017
+// If the socket lib is not found, the "Include", "Src" and "Lib" folders from the SDK need to be included. Info below
+// https://docs.microsoft.com/en-us/windows/win32/winsock/creating-a-basic-winsock-application
 
 #include <iostream>
 #include <chrono>
